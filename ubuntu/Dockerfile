@@ -14,5 +14,5 @@ RUN apt-get update && apt-get install -y git
 RUN git clone https://github.com/nareshganesan/ipxe-configs.git
 
 # copy the configs to php html root folder
-COPY /tmp/ipxe-configs/static/ /var/www/html/
+COPY /tmp/ipxe-configs/ubuntu/static/ /var/www/html/
 
