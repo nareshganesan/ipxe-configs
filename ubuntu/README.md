@@ -11,9 +11,12 @@ $ cd ipxe-configs/ubuntu;
 # build docker image
 # options
 # - HOST_URL - base ip/dns from where the docker will server configs.
-$ docker build --build-arg HOST_URL=localhost:80 -t ipxe-ubuntu .
+$ docker build --build-arg HOST_URL=192.168.1.2:8080 -t ipxe-ubuntu .
+# the best way would be to use internal dns mapping.
+
+
 # Run the docker build
-$ docker run --rm -d -p 80:80 --name ipxe-ubuntu ipxe-ubuntu:latest
+$ docker run --rm -d -p 8080:80 --name ipxe-ubuntu ipxe-ubuntu:latest
 ```
 
 
@@ -21,8 +24,8 @@ $ docker run --rm -d -p 80:80 --name ipxe-ubuntu ipxe-ubuntu:latest
 
 ```bash
 # to access the configs
-
-curl http://HOST_URL/boot.php
+# HOST_URL = 192.168.1.2:8080
+curl http://192.168.1.2:8080/boot.php
 
 options
   - mac - mac address of the machine can be obtained using ${net0/mac}
